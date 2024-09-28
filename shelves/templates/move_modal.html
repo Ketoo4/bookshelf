@@ -1,0 +1,32 @@
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <form id="moveForm" method="POST"
+                action="{{ url_for('shelves.move_book') }}">
+                <input type="hidden" name="book_id" value="{{ book.id }}">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Move book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <h4 for="chooseShelf">Choose shelf:</h4>
+                      <select class="form-control" id="shelect" name="shelect">
+                        <option value="moveTo">Move to</option>
+                        {% for shelf in shelves %}
+                          {% if shelf.id != book.shelf_id %}
+                            <option value="{{ shelf.id }}">{{ shelf.shelf_name }}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>

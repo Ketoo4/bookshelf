@@ -1,0 +1,29 @@
+<div style="width: 100%;" class="d-flex justify-content-center">
+    <div class="d-flex flex-row m-4" style="height: 22rem; width: 60%; background-color: white; border-radius:15px;">
+        <div id="info" style="width: 50%; padding-right:4rem;"
+            class="d-flex justify-content-center align-items-end flex-column">
+            <h2>{{ current_user.first_name }} {{ current_user.last_name }}</h2>
+            <p style="font-size: 22px;">@{{ current_user.username }}</p>
+            {% if current_user.bio %}
+            <p>{{ current_user.bio }}</p>
+            {% endif %}
+            <a class="btn btn-outline-secondary" href="/edit_user">Edit Profile</a>
+        </div>
+        <div id="profile_pic" style="width: 50%; padding-right:10rem;"
+            class="d-flex justify-content-center align-items-center flex-column">
+            <div style="height: 200px; width:200px">
+                <img style="width:100%;
+                height:100%; object-fit:cover; border-radius: 50%;"
+                    src="{{ url_for('static', filename='uploads/' + current_user.profile_pic) if current_user.profile_pic else url_for('static', filename='images/default_profile.png') }}">
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="mt-3 btn btn-outline-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModalCenter">
+                Change profile picture
+            </button>
+
+            {% include 'pfp_modal.html' %}
+
+        </div>
+    </div>
+</div>

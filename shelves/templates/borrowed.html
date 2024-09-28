@@ -1,0 +1,22 @@
+<h2 class=" mt-4 text-center">Borrowed</h2>
+  <div class=" mt-4 d-flex justify-content-center">
+    {% if borroweds %}
+    <div style="display: inline-grid; grid-template-columns: auto auto auto auto">
+      {% for book in borroweds %}
+      <div class="card" style="width: 18rem; height: 20rem; margin-right: 10px;">
+        <div class="card-body">
+          <h5 class="card-title">{{book.title}}</h5>
+          <p>{{book.author}}</p>
+          <br>
+          <a href="/shelves/{{ book.shelf_id }}/put_back_book/{{ book.id }}" class="btn btn-danger">Put back</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="d-felx flex-column">
+
+      <p>You haven't borrowed any books from this shelf</p>
+    </div>
+    {% endif %}
+  </div>

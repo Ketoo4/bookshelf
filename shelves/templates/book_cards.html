@@ -1,0 +1,31 @@
+{% for book in books %}
+<div class="card" style="
+          width: 18rem;
+          height: 20rem;
+          margin: 5px;
+          background: rgb(238, 174, 202);
+          background: linear-gradient(
+            180deg,
+            rgba(238, 174, 202, 1) 0%,
+            rgba(148, 187, 233, 1) 80%
+          );
+          border: none;
+        ">
+    <div class="card-body">
+        <h5 class="card-title">{{book.title}}</h5>
+        <p>{{book.author}}</p>
+        {% if search_result %}
+            <p> {{ book.shelf.shelf_name }}</p>
+        {% endif %}
+        <a href="/shelves/{{ book.shelf_id }}/delete_book/{{ book.id }}" class="btn btn-danger">Remove</a>
+        <a href="/shelves/{{ book.shelf_id }}/borrow_book/{{ book.id }}" class="btn btn-warning">Borrow</a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2">
+            Move
+        </button>
+
+        {% include 'move_modal.html' %}
+
+    </div>
+</div>
+{% endfor %}

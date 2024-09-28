@@ -1,0 +1,63 @@
+{% extends "base.html" %} 
+
+{% block title %} Bookshelf {% endblock %} 
+
+{% block body%}
+<div>
+  <div class="row justify-content-center" style="width: 100%">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="{{ url_for('static', filename='images/como-crear-blog-2019.jpg') }}"
+            alt="First slide" />
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{{ url_for('static', filename='images/how-to-write-a-blog-post.jpeg') }}"
+            alt="Second slide" />
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{{ url_for('static', filename='images/what-is-a-blog-1200x600-1.jpeg') }}"
+            alt="Third slide" />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="welcome">
+    <h1>Welcome to Bookshelf!</h1>
+    <br />
+    <p class="text">
+      Become part of our adventurous family and encourage your self-expression
+      through our page
+    </p>
+    <p class="text">Make your first post!</p>
+    <br />
+
+    <div class="post">
+      <textarea class="showofftext"></textarea>
+      <div class="buttons">
+        <div class="lefties">
+          <button type="button" class="btn btn-outline-success">Post</button>
+          <a href="signin"><button type="button" class="btn btn-outline-secondary">
+              Sign In
+            </button></a>
+        </div>
+        <div class="righties">
+          <p class="sign-up-text">Aren't part of our community yet?</p>
+          <a href="register"><button type="button" class="btn btn-outline-primary">Sign Up</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

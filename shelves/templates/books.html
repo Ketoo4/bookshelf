@@ -1,0 +1,56 @@
+{% extends "base.html" %} 
+
+{% block title %} Books {% endblock %} 
+
+{% block body%}
+
+{% include "user.html" %}
+
+<form method="POST" enctype="multipart/form-data" class="d-flex" role="search" style="
+    height: 40px;
+    width: 100%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+  ">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
+    style="width: 50rem" />
+  <button class="btn btn-outline-success" type="submit" value="Search">
+    Search
+  </button>
+</form>
+
+<div class="d-flex flex-column justify-content-center">
+  <div class="d-flex justify-content-center">
+    <div style="display: inline-grid; grid-template-columns: auto auto auto auto">
+      {% include 'book_cards.html' %}
+      <div class="card" style="
+          width: 18rem;
+          height: 20rem;
+          margin: 5px;
+          background: rgb(238, 174, 202);
+          background: linear-gradient(
+            180deg,
+            rgba(238, 174, 202, 1) 0%,
+            rgba(148, 187, 233, 1) 80%
+          );
+          border: none;
+        ">
+        <div class="card-body">
+          <h5 class="card-title">Add new book</h5>
+          <a href="/shelves/{{ shelf_id }}/add_book" class="btn btn-danger">+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'borrowed.html' %}
+
+  <div class=" mt-4 d-flex justify-content-center">
+    <a class="btn btn-outline-primary" href="/shelves" style="width: 25rem;">Go back to shelves</a>
+  </div>
+</div>
+
+
+{% endblock %}

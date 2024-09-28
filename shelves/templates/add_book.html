@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+
+{% block title %} Add Book {% endblock %} 
+
+{% block body%}
+<div>
+  <div class="welcome" style="margin-top: 78px">
+    <form method="POST" enctype="multipart/form-data" style="
+        background-color: white;
+        padding: 60px;
+        padding-left: 80px;
+        padding-right: 80px;
+        border-radius: 15px;
+      ">
+      {{ form.hidden_tag() }}
+
+      <div class="mb-3">
+        <label class="form-label">Book title</label>
+        {{ form.title(class="form-control") }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Book author</label>
+        {{ form.author(class="form-control") }}
+      </div>
+      {{ form.submit(class="btn btn-outline-success") }}
+      <a href="/shelves/{{ id }}" class="btn btn-outline-primary">view books</a>
+      <a class="btn btn-outline-secondary" href="/shelves">View Shelves</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

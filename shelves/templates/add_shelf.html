@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+
+{% block title %} Add shelf {% endblock %} 
+
+{% block body%}
+<div>
+  <div class="welcome" style="margin-top: 78px">
+    <form method="POST" enctype="multipart/form-data" style="
+        background-color: white;
+        padding: 60px;
+        padding-left: 80px;
+        padding-right: 80px;
+        border-radius: 15px;
+      ">
+      {{ form.hidden_tag() }}
+
+      <div class="mb-3">
+        <label class="form-label">Shelf Name</label>
+        {{ form.shelf_name(class="form-control") }}
+      </div>
+      {{ form.submit(class="btn btn-outline-success") }}
+      <a class="btn btn-outline-primary" href="/shelves">View Shelves</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

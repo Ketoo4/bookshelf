@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% block body%}
+<div>
+    <div class="welcome" style="margin-top: 78px">
+        {% for errors in form.errors.values() %}
+            {% for error in errors %}
+                <div class="alert alert-danger" style="width:40rem">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <form method="post" enctype="multipart/form-data" style="
+            background-color: white;
+            padding: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+            border-radius: 15px;
+            width: 40rem;
+          ">
+            {{form.hidden_tag()}}
+
+            <h2 class="text-center mb-4">Sign Up</h2>
+            <label class="form-label">{{form.first.label.text}}</label>
+            <div class="input-group mb-3">
+                {{ form.first(class="form-control", aria_label="Username", aria_describedby="basic-addon1") }}
+            </div>
+            <label class="form-label">{{form.last.label.text}}</label>
+            <div class="input-group mb-3">
+                {{ form.last(class="form-control", aria_label="Username", aria_describedby="basic-addon1") }}
+            </div>
+            <label class="form-label">{{form.username.label.text}}</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                {{ form.username(class="form-control", aria_label="Username", aria_describedby="basic-addon1") }}
+            </div>
+            <label class="form-label">{{form.email.label.text}}</label>
+            <div class="input-group mb-3">
+                {{ form.email(class="form-control") }}
+                <span class="input-group-text" id="basic-addon2">@example.com</span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">{{form.password.label.text}}</label>
+                {{ form.password(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">{{form.repeat_password.label.text}}</label>
+                {{ form.repeat_password(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{form.birthday.label.text}}</label>
+                {{ form.birthday(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{form.gender.label.text}}</label>
+                {{ form.gender() }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{form.profile_pic.label.text}}</label>
+                {{ form.profile_pic() }}
+            </div>
+
+            {{ form.submit(class="btn btn-outline-success") }}
+
+        </form>
+    </div>
+</div>
+{% endblock %}

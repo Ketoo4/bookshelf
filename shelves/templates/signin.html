@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+
+{% block title %} Sign In {% endblock %} 
+
+{% block body%}
+<div>
+  <div class="welcome" style="margin-top: 78px">
+    <form method="post" enctype="multipart/form-data" style="
+        background-color: white;
+        padding: 60px;
+        padding-left: 80px;
+        padding-right: 80px;
+        border-radius: 15px;
+      ">
+      {{form.hidden_tag()}}
+      <div class="mb-3">
+        <label class="form-label">{{form.username.label.text}}</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                {{ form.username(class="form-control", aria_label="Username", aria_describedby="basic-addon1") }}
+            </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">{{form.password.label.text}}</label>
+        {{ form.password(class="form-control") }}
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
